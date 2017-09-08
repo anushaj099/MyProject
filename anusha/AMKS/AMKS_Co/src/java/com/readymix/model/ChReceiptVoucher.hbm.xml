@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 15, 2017 4:24:12 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.readymix.model.ChReceiptVoucher" table="ch_receipt_voucher" catalog="amks" optimistic-lock="version">
+        <id name="receiptNo" type="java.lang.Integer">
+            <column name="receipt_no" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="prReceiptVoucher" class="com.readymix.model.PrReceiptVoucher" fetch="select">
+            <column name="crid" not-null="true" />
+        </many-to-one>
+        <property name="productDesc" type="string">
+            <column name="product_desc" length="65535" />
+        </property>
+        <property name="hsnCode" type="string">
+            <column name="HSN_code" length="50" />
+        </property>
+        <property name="beforeTax" type="java.lang.Float">
+            <column name="before_tax" precision="20" scale="8" />
+        </property>
+        <property name="afterTax" type="java.lang.Float">
+            <column name="after_tax" precision="20" scale="8" />
+        </property>
+        <property name="taxableValue" type="java.lang.Float">
+            <column name="taxable_value" precision="20" scale="8" />
+        </property>
+        <property name="cgRate" type="java.lang.Float">
+            <column name="cg_rate" precision="20" scale="8" />
+        </property>
+        <property name="cgAmt" type="java.lang.Float">
+            <column name="cg_amt" precision="20" scale="8" />
+        </property>
+        <property name="sgRate" type="java.lang.Float">
+            <column name="sg_rate" precision="20" scale="8" />
+        </property>
+        <property name="sgAmt" type="java.lang.Float">
+            <column name="sg_amt" precision="20" scale="8" />
+        </property>
+        <property name="chTotal" type="java.lang.Float">
+            <column name="ch_total" precision="20" scale="8" />
+        </property>
+    </class>
+</hibernate-mapping>
