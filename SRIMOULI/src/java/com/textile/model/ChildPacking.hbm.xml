@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 1, 2017 4:28:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.textile.model.ChildPacking" table="child_packing" catalog="srimouli2" optimistic-lock="version">
+        <id name="idp" type="java.lang.Integer">
+            <column name="idp" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="parentPacking" class="com.textile.model.ParentPacking" fetch="select">
+            <column name="idpq" />
+        </many-to-one>
+        <property name="count" type="string">
+            <column name="count" length="50" />
+        </property>
+        <property name="countDb" type="java.lang.Integer">
+            <column name="count_db" />
+        </property>
+        <property name="boxType" type="string">
+            <column name="box_type" length="20" />
+        </property>
+        <property name="weight" type="string">
+            <column name="weight" length="20" />
+        </property>
+        <property name="openingStock" type="java.lang.Float">
+            <column name="opening_stock" precision="20" scale="8" />
+        </property>
+        <property name="packedBags" type="java.lang.Float">
+            <column name="packed_bags" precision="20" scale="8" />
+        </property>
+        <property name="noofKgsPacked" type="java.lang.Float">
+            <column name="noof_kgs_packed" precision="20" scale="8" />
+        </property>
+        <property name="dispatch" type="java.lang.Float">
+            <column name="dispatch" precision="20" scale="8"   />
+        </property>
+       
+        <property name="disclose" type="java.lang.Float">
+            <column name="disclose" precision="20" scale="8" />
+        </property>
+        <property name="cdate" type="date">
+            <column name="cdate" length="10" />
+        </property>
+        <property name="actualDate" type="date">
+            <column name="actual_date" length="10" />
+        </property>
+        <property name="CClose" type="string">
+            <column name="c_close" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

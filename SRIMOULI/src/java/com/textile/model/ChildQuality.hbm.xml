@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2017 2:59:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.textile.model.ChildQuality" table="child_quality" catalog="srimouli2" optimistic-lock="version">
+        <id name="idl" type="java.lang.Integer">
+            <column name="idl" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="parentQuality" class="com.textile.model.ParentQuality" fetch="select">
+            <column name="idq" />
+        </many-to-one>
+        <property name="machines" type="string">
+            <column name="machines" length="30" />
+        </property>
+        <property name="count" type="java.lang.Integer">
+            <column name="count" />
+        </property>
+        <property name="countmaintained" type="java.lang.Float">
+            <column name="Countmaintained" precision="10" />
+        </property>
+        <property name="csp" type="java.lang.Float">
+            <column name="CSP" precision="10" />
+        </property>
+        <property name="cv" type="java.lang.Float">
+            <column name="CV" precision="10" />
+        </property>
+        <property name="strengthCv" type="java.lang.Float">
+            <column name="Strength_cv" precision="10" />
+        </property>
+        <property name="minus50EveryDay" type="java.lang.Float">
+            <column name="Minus_50_EveryDay" precision="10" />
+        </property>
+        <property name="plus50EveryDay" type="java.lang.Float">
+            <column name="plus50_EveryDay" precision="10" />
+        </property>
+        <property name="plus280everyDay" type="java.lang.Float">
+            <column name="plus280EveryDay" precision="10" />
+        </property>
+        <property name="ipi" type="java.lang.Float">
+            <column name="IPI" precision="10" />
+        </property>
+        <property name="remarks" type="string">
+            <column name="Remarks" />
+        </property>
+        <property name="actualDate" type="date">
+            <column name="actual_date" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

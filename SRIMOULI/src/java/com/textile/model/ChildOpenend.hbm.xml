@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2017 2:59:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.textile.model.ChildOpenend" table="child_openend" catalog="srimouli2" optimistic-lock="version">
+        <id name="idp" type="java.lang.Integer">
+            <column name="idp" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="parentOpenend" class="com.textile.model.ParentOpenend" fetch="select">
+            <column name="ido" />
+        </many-to-one>
+        <property name="openEnd" type="string">
+            <column name="open_end" length="20" />
+        </property>
+        <property name="count" type="java.lang.Integer">
+            <column name="count" />
+        </property>
+        <property name="countMaintain" type="java.lang.Float">
+            <column name="count_maintain" precision="8" scale="4" />
+        </property>
+        <property name="mcSpeed" type="java.lang.Double">
+            <column name="MC_speed" precision="10" scale="4" />
+        </property>
+        <property name="tm" type="java.lang.Float">
+            <column name="TM" precision="10" scale="6" />
+        </property>
+        <property name="mcRunning" type="java.lang.Double">
+            <column name="MC_running" precision="10" scale="4" />
+        </property>
+        <property name="expectedProduction" type="java.lang.Float">
+            <column name="expected_production" precision="10" scale="6" />
+        </property>
+        <property name="actualProduction" type="java.lang.Float">
+            <column name="actual_production" precision="10" scale="6" />
+        </property>
+        <property name="efficiency" type="java.lang.Float">
+            <column name="efficiency" precision="10" scale="4" />
+        </property>
+        <property name="breakeges" type="string">
+            <column name="breakeges" length="20" />
+        </property>
+        <property name="hundredPercentEfcy" type="java.lang.Float">
+            <column name="hundred_percent_efcy" precision="10" />
+        </property>
+        <property name="remarks" type="string">
+            <column name="remarks" length="65535" />
+        </property>
+        <property name="empId" type="java.lang.Integer">
+            <column name="empId" />
+        </property>
+   <property name="actualDate" type="date">
+       <column name="actual_date" length="10"/>
+   </property>
+
+    </class>
+</hibernate-mapping>

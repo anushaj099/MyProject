@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/srimouli2</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">12345</property>
+    <property name="show_sql">true</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <mapping resource="com/textile/model/PkDispatched.hbm.xml"/>
+    <mapping resource="com/textile/model/ChildCarding.hbm.xml"/>
+    <mapping resource="com/textile/model/StockReportA.hbm.xml"/>
+    <mapping resource="com/textile/model/GodownProduct.hbm.xml"/>
+    <mapping resource="com/textile/model/ParentGdWastage.hbm.xml"/>
+    <mapping resource="com/textile/model/ChildPacking.hbm.xml"/>
+    <mapping resource="com/textile/model/ProductsSample.hbm.xml"/>
+    <mapping resource="com/textile/model/Employee.hbm.xml"/>
+    <mapping resource="com/textile/model/ParentPacking.hbm.xml"/>
+    <mapping resource="com/textile/model/StockReport.hbm.xml"/>
+    <mapping resource="com/textile/model/ParentQuality.hbm.xml"/>
+    <mapping resource="com/textile/model/Stock.hbm.xml"/>
+    <mapping resource="com/textile/model/StockReportReal.hbm.xml"/>
+    <mapping resource="com/textile/model/GdPurchase.hbm.xml"/>
+    <mapping resource="com/textile/model/ParentOpenend.hbm.xml"/>
+    <mapping resource="com/textile/model/Powerunits.hbm.xml"/>
+    <mapping resource="com/textile/model/ParentGdProduction.hbm.xml"/>
+    <mapping resource="com/textile/model/ChildGdPrecleaning.hbm.xml"/>
+    <mapping resource="com/textile/model/ChildQuality.hbm.xml"/>
+    <mapping resource="com/textile/model/ChildDrawing.hbm.xml"/>
+    <mapping resource="com/textile/model/PackPatterns.hbm.xml"/>
+    <mapping resource="com/textile/model/GdSale.hbm.xml"/>
+    <mapping resource="com/textile/model/ChildGdProduction.hbm.xml"/>
+    <mapping resource="com/textile/model/ChildOpenend.hbm.xml"/>
+    <mapping resource="com/textile/model/Counts.hbm.xml"/>
+    <mapping resource="com/textile/model/ParentDrawing.hbm.xml"/>
+    <mapping resource="com/textile/model/ParentGdPrecleaning.hbm.xml"/>
+    <mapping resource="com/textile/model/ChildGdWastage.hbm.xml"/>
+    <mapping resource="com/textile/model/FinancialYearBackup.hbm.xml"/>
+    <mapping resource="com/textile/model/ParentCarding.hbm.xml"/>
+    <mapping resource="com/textile/model/Login.hbm.xml"/>
+    <mapping resource="com/textile/model/PackerName.hbm.xml"/>
+    <mapping resource="com/textile/model/Superviser.hbm.xml"/>
+    <mapping resource="com/textile/model/ReadyToPack.hbm.xml"/>
+    <mapping resource="com/textile/model/CurrentYear.hbm.xml"/>
+    <mapping resource="com/textile/model/AvailableYears.hbm.xml"/>
+    <mapping resource="com/textile/model/StockReptBgs.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

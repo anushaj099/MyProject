@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2017 2:59:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.textile.model.ParentCarding" table="parent_carding" catalog="srimouli2" optimistic-lock="version">
+        <id name="idc" type="java.lang.Integer">
+            <column name="idc" />
+            <generator class="identity" />
+        </id>
+        <property name="date" type="date">
+            <column name="date" length="10" />
+        </property>
+        <property name="shifts" type="string">
+            <column name="shifts" length="20" />
+        </property>
+        <property name="superviser" type="string">
+            <column name="superviser" length="30" />
+        </property>
+        <property name="totalActualProduction" type="java.lang.Float">
+            <column name="total_Actual_production" precision="10" scale="6" />
+        </property>
+        <property name="totalExpectedProduction" type="java.lang.Float">
+            <column name="total_Expected_production" precision="10" scale="6" />
+        </property>
+        <property name="totalEfficiency" type="java.lang.Float">
+            <column name="total_efficiency" precision="10" scale="6" />
+        </property>
+        <set name="childCardings" table="child_carding" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idc" />
+            </key>
+            <one-to-many class="com.textile.model.ChildCarding" />
+        </set>
+    </class>
+</hibernate-mapping>

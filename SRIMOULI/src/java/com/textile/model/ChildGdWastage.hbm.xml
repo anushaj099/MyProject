@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2017 2:59:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.textile.model.ChildGdWastage" table="child_gd_wastage" catalog="srimouli2" optimistic-lock="version">
+        <id name="idp" type="java.lang.Integer">
+            <column name="idp" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="parentGdWastage" class="com.textile.model.ParentGdWastage" fetch="select">
+            <column name="idw" />
+        </many-to-one>
+        <property name="variety" type="string">
+            <column name="variety" length="20" />
+        </property>
+        <property name="numberofBales" type="java.lang.Float">
+            <column name="numberof_bales" precision="10" />
+        </property>
+        <property name="weight" type="java.lang.Float">
+            <column name="weight" precision="10" />
+        </property>
+        <property name="actDate" type="date">
+            <column name="act_date" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

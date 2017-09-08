@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2017 2:59:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.textile.model.GdSale" table="gd_sale" catalog="srimouli2" optimistic-lock="version">
+        <id name="ids" type="java.lang.Integer">
+            <column name="ids" />
+            <generator class="identity" />
+        </id>
+        <property name="date" type="date">
+            <column name="date" length="10" />
+        </property>
+        <property name="customerName" type="string">
+            <column name="customer_name" length="50" />
+        </property>
+        <property name="productType" type="string">
+            <column name="product_type" length="20" />
+        </property>
+        <property name="noOfBales" type="java.lang.Float">
+            <column name="no_of_bales" precision="10" scale="6" />
+        </property>
+        <property name="grossWeight" type="java.lang.Float">
+            <column name="gross_weight" precision="10" scale="6" />
+        </property>
+        <property name="netWeight" type="java.lang.Float">
+            <column name="net_weight" precision="10" scale="6" />
+        </property>
+        <property name="tareWeight" type="java.lang.Float">
+            <column name="tare_weight" precision="10" scale="6" />
+        </property>
+        <property name="vehicleNo" type="string">
+            <column name="vehicle_no" length="20" />
+        </property>
+        <property name="remarks" type="string">
+            <column name="remarks" length="65535" />
+        </property>
+        <property name="noOfKgs" type="java.lang.Integer">
+            <column name="no_of_kgs" />
+        </property>
+    </class>
+</hibernate-mapping>

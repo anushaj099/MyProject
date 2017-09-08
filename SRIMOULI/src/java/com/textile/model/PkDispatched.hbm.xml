@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 1, 2017 10:42:39 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.textile.model.PkDispatched" table="pk_dispatched" catalog="srimouli2" optimistic-lock="version">
+        <id name="idk" type="java.lang.Integer">
+            <column name="idk" />
+            <generator class="identity" />
+        </id>
+        <property name="date" type="date">
+            <column name="date" length="10" />
+        </property>
+        <property name="customer" type="string">
+            <column name="customer" length="50" />
+        </property>
+        <property name="count" type="java.lang.Integer">
+            <column name="count" />
+        </property>
+        <property name="netWt" type="java.lang.Float">
+            <column name="net_wt" precision="10" />
+        </property>
+        <property name="vehicleNo" type="string">
+            <column name="vehicle_no" length="20" />
+        </property>
+        <property name="bagSerialNo" type="string">
+            <column name="bag_serial_no" length="30" />
+        </property>
+        <property name="lotNo" type="string">
+            <column name="lot_no" length="30" />
+        </property>
+        <property name="weighingBridge" type="java.lang.Float">
+            <column name="weighing_bridge" precision="10" />
+        </property>
+        <property name="remarks" type="string">
+            <column name="remarks" />
+        </property>
+        <property name="packingType" type="string">
+            <column name="packing_type" length="50" />
+        </property>
+        <property name="noOfBags" type="java.lang.Integer">
+            <column name="no_of_bags" length="50" />
+        </property>
+        <property name="expectedGrossWt" type="java.lang.Float">
+            <column name="expected_gross_wt" precision="10" />
+        </property>
+        <property name="packingWeight" type="string">
+            <column name="packing_weight" length="50" />
+        </property>
+        <property name="extraYarnCent" type="java.lang.Float">
+            <column name="extra_yarn_cent" precision="10" />
+        </property>
+        <property name="tareWeight" type="string">
+            <column name="tare_weight" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="srimouli2"/>
+  <table-filter match-name="stock_report"/>
+  <table-filter match-name="child_gd_precleaning"/>
+  <table-filter match-name="child_packing"/>
+  <table-filter match-name="parent_quality"/>
+  <table-filter match-name="pack_patterns"/>
+  <table-filter match-name="child_quality"/>
+  <table-filter match-name="godown_product"/>
+  <table-filter match-name="child_openend"/>
+  <table-filter match-name="child_gd_production"/>
+  <table-filter match-name="child_carding"/>
+  <table-filter match-name="gd_purchase"/>
+  <table-filter match-name="parent_openend"/>
+  <table-filter match-name="stock_report_real"/>
+  <table-filter match-name="employee"/>
+  <table-filter match-name="login"/>
+  <table-filter match-name="parent_gd_precleaning"/>
+  <table-filter match-name="parent_packing"/>
+  <table-filter match-name="packer_name"/>
+  <table-filter match-name="parent_gd_wastage"/>
+  <table-filter match-name="counts"/>
+  <table-filter match-name="stock"/>
+  <table-filter match-name="parent_gd_production"/>
+  <table-filter match-name="stock_report_a"/>
+  <table-filter match-name="gd_sale"/>
+  <table-filter match-name="products_sample"/>
+  <table-filter match-name="financial_year_backup"/>
+  <table-filter match-name="pk_dispatched"/>
+  <table-filter match-name="superviser"/>
+  <table-filter match-name="parent_carding"/>
+  <table-filter match-name="parent_drawing"/>
+  <table-filter match-name="child_gd_wastage"/>
+  <table-filter match-name="child_drawing"/>
+  <table-filter match-name="powerunits"/>
+  <table-filter match-name="current_year"/>
+  <table-filter match-name="available_years"/>
+  <table-filter match-name="stock_rept_bgs"/>
+</hibernate-reverse-engineering>

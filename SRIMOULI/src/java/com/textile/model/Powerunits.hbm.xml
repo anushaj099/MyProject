@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2017 2:59:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.textile.model.Powerunits" table="powerunits" catalog="srimouli2" optimistic-lock="version">
+        <id name="ide" type="java.lang.Integer">
+            <column name="ide" />
+            <generator class="identity" />
+        </id>
+        <property name="date" type="date">
+            <column name="date" length="10" />
+        </property>
+        <property name="superviser" type="string">
+            <column name="superviser" length="50" />
+        </property>
+        <property name="shifts" type="string">
+            <column name="shifts" length="20" />
+        </property>
+        <property name="blowRoom" type="java.lang.Float">
+            <column name="Blow_room" precision="10" scale="6" />
+        </property>
+        <property name="wrs" type="java.lang.Float">
+            <column name="WRS" precision="10" scale="6" />
+        </property>
+        <property name="prep" type="java.lang.Float">
+            <column name="PREP" precision="10" scale="6" />
+        </property>
+        <property name="oe1" type="java.lang.Float">
+            <column name="OE_1" precision="10" scale="6" />
+        </property>
+        <property name="oe2" type="java.lang.Float">
+            <column name="OE_2" precision="10" scale="6" />
+        </property>
+        <property name="oe3" type="java.lang.Float">
+            <column name="OE_3" precision="10" scale="6" />
+        </property>
+        <property name="oe4" type="java.lang.Float">
+            <column name="OE_4" precision="10" scale="6" />
+        </property>
+        <property name="oe5" type="java.lang.Float">
+            <column name="OE_5" precision="10" scale="6" />
+        </property>
+        <property name="oe6" type="java.lang.Float">
+            <column name="OE_6" precision="10" scale="6" />
+        </property>
+        <property name="hmPlant" type="java.lang.Float">
+            <column name="HM_PLANT" precision="10" scale="6" />
+        </property>
+        <property name="compressor" type="java.lang.Float">
+            <column name="COMPRESSOR" precision="10" scale="6" />
+        </property>
+        <property name="lighting" type="java.lang.Float">
+            <column name="LIGHTING" precision="10" scale="6" />
+        </property>
+        <property name="roPlant" type="java.lang.Float">
+            <column name="RO_PLANT" precision="10" scale="6" />
+        </property>
+        <property name="ycp" type="java.lang.Float">
+            <column name="YCP" precision="10" scale="6" />
+        </property>
+        <property name="balePress" type="java.lang.Float">
+            <column name="Bale_press" precision="10" scale="6" />
+        </property>
+        <property name="fireDump" type="java.lang.Float">
+            <column name="Fire_Dump" precision="10" scale="6" />
+        </property>
+        <property name="preCleaning" type="java.lang.Float">
+            <column name="Pre_Cleaning" precision="10" scale="6" />
+        </property>
+        <property name="total" type="java.lang.Float">
+            <column name="Total" precision="10" />
+        </property>
+    </class>
+</hibernate-mapping>

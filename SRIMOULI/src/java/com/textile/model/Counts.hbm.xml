@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2017 2:59:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.textile.model.Counts" table="counts" catalog="srimouli2" optimistic-lock="version">
+        <id name="idm" type="java.lang.Integer">
+            <column name="idm" />
+            <generator class="identity" />
+        </id>
+        <property name="count" type="string">
+            <column name="count" length="20" />
+        </property>
+         <property name="openStock" type="java.lang.Float">
+            <column name="open_stock" precision="10" scale="2" />
+        </property>
+    </class>
+</hibernate-mapping>

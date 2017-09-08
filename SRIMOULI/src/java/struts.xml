@@ -1,0 +1,965 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">    
+        
+        <interceptors>
+		<interceptor class="com.textile.interceptor.LoginInterceptor" name="loginInterceptor">
+			</interceptor>
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="loginInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+	</interceptors>
+        <default-interceptor-ref name="loginStack"/>         
+         <global-results>
+		<result name="login">/index.jsp</result>
+	</global-results>
+
+
+        <action name="logout" class="com.textile.struts.LoginAction" method="logout">
+	<result name="success">/index.jsp</result>
+	</action>
+
+        
+        
+           <action name="insert" class="com.textile.struts.LoginForm" method="login">    
+           <result name="fail">/index.jsp</result> 
+            <result name="forward" type="redirectAction">advanceinsrt</result>
+           </action>
+        
+        
+         <action name="advanceinsrt" class="com.textile.struts.LoginAction" method="login">    
+            <result name="fail">/index.jsp</result>   
+            <result name="carding">/HomePage.jsp</result>
+            <result name="drawing">/HomePage.jsp</result>
+            <result name="godown">/HomePage.jsp</result>
+            <result name="openend">/HomePage.jsp</result>
+            <result name="quality">/HomePage.jsp</result>
+            <result name="control">/HomePage.jsp</result>
+            <result name="packing">/HomePage.jsp</result>
+            <result name="electricity">/HomePage.jsp</result>
+            <result name="dataentry">/HomePage.jsp</result>
+            <result name="input">/index.jsp</result>
+            <result name="success">/HomePage.jsp</result>
+        </action>
+        <action name="updatepwd" class="com.textile.struts.LoginAction" method="updatepwd">
+           <result name="fail">/changepwd.jsp</result>
+           <result name="success" type="redirectAction">home</result>
+        </action> 
+        <action name="changepwd" class="com.textile.struts.LoginAction" method="cardingprofile">
+            <result name="success">/changepwd.jsp</result>
+        </action> 
+        
+        <!--  Create New Employee -->
+         <action name="employeeDashboard"  method="dispemployee" class="com.textile.struts.EmployeeAction">
+               <result name="success">/AddEmployee.jsp</result>
+         </action>
+         <action name="insertEmployee"  method="insertEmployee" class="com.textile.struts.EmployeeAction">
+               <result name="input">/AddEmployee.jsp</result>
+               <result name="fail">/AddEmployee.jsp</result> 
+               <result name="success" type="redirectAction">viewEmployee</result>
+         </action> 
+         <action name="settinghome"  method="sethome" class="com.textile.struts.EmployeeAction">
+               <result name="success">/Settings.jsp</result>
+         </action>
+           
+           
+            <action name="viewEmployee" method="viewEmployee" class="com.textile.struts.EmployeeAction">
+              <result name="success">/EmployeeView.jsp</result>
+          </action>
+          <action name="editEmployee" method="editEmployee" class="com.textile.struts.EmployeeAction">
+              <result name="success">/EmployeeUpdate.jsp</result>
+          </action>
+           <action name="deleteEmployee" method="deleteEmployee" class="com.textile.struts.EmployeeAction">
+              <result name="success" type="redirectAction">viewEmployee</result>
+          </action>
+        <action name="updateEmployee" method="updateEmployee" class="com.textile.struts.EmployeeAction">
+              <result name="input">/EmployeeUpdate.jsp</result>
+              <result name="success">/EmployeeView.jsp</result>
+          </action>
+           
+       
+       
+        <!--     Carding Module -->
+        <action name="cardingHome" class="com.textile.struts.LoginAction" method="cardingHome1">    
+             
+        <result name="cardinghome">/HomePage.jsp</result>
+            <!--   <result name="drawinghome">/HomeDrawing.jsp</result>
+            <result name="openendhome">/HomeOpenend.jsp</result>  -->
+        </action>
+        <action name="MyProfile" class="com.textile.struts.LoginAction" method="cardingprofile">
+            <result name="success">/MyProfile.jsp</result>
+        </action> 
+        <action name="cardingreports" class="com.textile.struts.LoginAction" method="cardingprofile">
+            <result name="success">/CardingReports.jsp</result>
+        </action> 
+        <action name="cardingDashboard" class="com.textile.struts.CardingAction" method="cardingHome"> 
+            <result name="success">/HomePage.jsp</result>
+            <result name="carding">/cardingHome.jsp</result>
+            <result name="control">/cardingHome.jsp</result>
+            <!--            <result name="drawing">/MyProfile.jsp</result>
+            <result name="openend">/MyProfile.jsp</result> -->
+        </action>
+        <action name="Cardinginsert" method="cardingInsert" class="com.textile.struts.CardingAction"> 
+            <result name="input">/cardingHome.jsp</result> 
+            <result name="cardingreports">/CardingReports.jsp</result> 
+            <result name="cardingview">/CardingReports.jsp</result>
+            <result name="success">/cardingHome.jsp</result>
+        </action>
+        <!--<action name="Cardinginsert" method="cardingInsert" class="com.textile.struts.CardingAction"> 
+             <result name="input">/cardingHome.jsp</result> 
+            <result name="success">/CardingReports.jsp</result> 
+        </action> -->
+        
+       <action name="CardinginsertReal" method="InsertCardingReal" class="com.textile.struts.CardingAction">
+           <result name="input">/cardingHome.jsp</result> 
+            <result name="success" type="redirectAction">cardingview</result>
+        </action>
+        
+        <action name="retrievePCarding" class="com.textile.struts.PCardingAction" method="retrieve">
+            <result name="success">/CardingReports.jsp</result>
+        </action>
+        <action name="cardingEdit" class="com.textile.struts.CardingAction" method="cEdit">
+            <result name="success">/CardingView2.jsp</result>
+        </action>
+        <action name="cardingUpdate" class="com.textile.struts.CardingAction" method="cUpdate">
+            <result name="input">/QualityReports.jsp</result>
+            <result name="success" type="redirectAction">cardingview</result>
+        </action>
+        <action name="cardingDelete" class="com.textile.struts.CardingAction" method="cDelete">
+           <result name="success" type="redirectAction">cardingview</result>
+        </action>
+        <action name="cardingview" class="com.textile.struts.CardingAction" method="cardingRetrieve">
+            <result name="success">/viewCarding.jsp</result>
+        </action>
+         <action name="cardingreportsMain" class="com.textile.struts.LoginAction" method="cardingprofile">
+            <result name="success">/CardingReportsMain.jsp</result>
+        </action> 
+        <action name="retrievePCarding1" class="com.textile.struts.PCardingAction" method="retrievemain">
+            <result name="success">/CardingReportsMain.jsp</result>
+        </action>
+        
+        
+        
+        
+       <!-- Openend module   -->
+        <action name="openendHome" class="com.textile.struts.LoginAction" method="openendHome1">
+            <result name="openendhome">/HomePage.jsp</result>
+        </action>
+        <action name="openendprofile" class="com.textile.struts.LoginAction" method="openendprofile">
+            <result name="success">/OpenendProfile.jsp</result>
+        </action>
+        <action name="openendreports" class="com.textile.struts.LoginAction" method="openendprofile">
+            <result name="success">/OeReports.jsp</result>
+        </action>
+        <action name="openendreports1" class="com.textile.struts.LoginAction" method="openendprofile">
+            <result name="success">/MainOeReports.jsp</result>
+        </action>
+        <action name="openendDashboard" class="com.textile.struts.OeHomeAction" method="openendHome">
+            <result name="success">/HomePage.jsp</result>
+            <result name="control">/openendHome.jsp</result>
+            <result name="openend">/openendHome.jsp</result>
+        </action>
+        <action name="addOE" class="com.textile.struts.OeHomeAction" method="openendInsert">           
+            <result name="success">/openendHome.jsp</result>
+           
+        </action>
+        <action name="addOEReal" class="com.textile.struts.OeHomeAction" method="InsertOpenendReal">           
+            <result name="input">/openendHome.jsp</result>
+           <result name="success" type="redirectAction">openendview</result>
+        </action>
+        <action name="Openend" class="com.textile.struts.OeRtveAction" method="retrieveOe" >
+            <result name="success">/OeReports.jsp</result> 
+        </action>
+        <!-- View page for oe-->
+        <action name="oeEdit" class="com.textile.struts.OeHomeAction" method="oEdit">
+            <result name="success">/OeUpdate.jsp</result>
+        </action>
+        <action name="oeUpdate" class="com.textile.struts.OeHomeAction" method="oUpdate">
+           <result name="success" type="redirectAction">openendview</result>
+        </action> 
+        <!--    <action name="addOE" method="openendInsert" class="com.textile.struts.OeHomeAction">
+              <result name="oereports">/OeReports.jsp</result> 
+             <result name="oeView">/OeView.jsp</result> 
+        </action> -->
+        
+        <action name="oeDelete" class="com.textile.struts.OeHomeAction" method="oDelete">
+             <result name="success" type="redirectAction">openendview</result>
+        </action>
+        <action name="openendview" class="com.textile.struts.OeHomeAction" method="oeview">
+            <result name="success">/OeView.jsp</result>
+        </action>
+        <action name="OpenendMain" class="com.textile.struts.OeRtveAction" method="retrieveOe1">
+            <result name="success" >/MainOeReports.jsp</result>
+        </action>
+        
+        <!--    Drawing Module -->    
+        
+        <action name="drawingInsert" method="InsertDrawing" class="com.textile.struts.DrawingAction">
+            <result name="input">/drawingHome.jsp</result>
+            <result name="success">/DrawingReports.jsp</result>
+        </action>
+       
+        <action name="drawingEdit" class="com.textile.struts.DrawingAction" method="drawingEdit">
+            <result name="success">/drawingUpdate.jsp</result>
+        </action>
+        <action name="drawingUpdate" class="com.textile.struts.DrawingAction" method="drawingUpdate">
+           <result name="success" type="redirectAction">drawingview</result>
+        </action>
+        <action name="drawingDelete" class="com.textile.struts.DrawingAction" method="drawingDelete">
+            <result name="success" type="redirectAction">drawingview</result>
+        </action>
+        <action name="Drawing" class="com.textile.struts.DrawingAction">
+            <result name="success">/drawingHome.jsp</result>
+        </action>
+        <action name="retrieveDrawing" class="com.textile.struts.PDrawingAction" method="drawingRetrieve">
+            <result name="success">/DrawingReports.jsp</result>
+        </action>
+        <action name="retrievemainDrawing" class="com.textile.struts.PDrawingAction" method="drawingRetrievemain">
+            <result name="success">/DrawingReportsmain.jsp</result>
+        </action>
+        <action name="drawingHome" class="com.textile.struts.LoginAction" method="drawingHome1">
+            <result name="drawinghome">/HomePage.jsp</result>
+            <!--<result name="cardinghome">/HomePage.jsp</result>-->
+            
+        </action>
+        <action name="drawingprofile" class="com.textile.struts.LoginAction" method="drawingprofile">
+            <result name="success">/DrawingProfile.jsp</result>
+        </action>
+        <action name="drawingreports" class="com.textile.struts.LoginAction" method="drawingprofile">
+            <result name="success">/DrawingReports.jsp</result>
+        </action>
+        <action name="drawingreports2" class="com.textile.struts.LoginAction" method="drawingprofile">
+            <result name="success">/DrawingReportsmain.jsp</result>
+        </action>
+        
+        <action name="drawingDashboard" class="com.textile.struts.DrawingAction" method="drawingHome">
+            <result name="success">/HomePage.jsp</result>
+            <result name="drawing">/drawingHome.jsp</result>
+            <result name="control">/drawingHome.jsp</result>
+            <!--<result name="carding">/MyProfile.jsp</result>-->
+        </action>
+        <action name="drawingview" class="com.textile.struts.DrawingAction" method="drawingView">
+            <result name="success">/drawingView.jsp</result>
+        </action>
+         <action name="drawingInsertReal" class="com.textile.struts.DrawingAction" method="drawingInReal">
+            <result name="input">/drawingHome.jsp</result>
+          <result name="drawingView" type="redirectAction">drawingview</result>
+        </action>
+        
+		
+		
+        <!--  Godown -->
+         
+        <action name="home" class="com.textile.struts.LoginAction" method="controlHome">
+            <result name="success">/HomePage.jsp</result> 
+            <!--<result name="cardinghome">/HomePage.jsp</result>-->
+        </action>
+        <action name="godownHome" class="com.textile.struts.LoginAction" method="purchaseHome1">
+            <result name="godownhome">/GodownHome.jsp</result>
+            <result name="control">/GodownHome.jsp</result> 
+             <result name="fail">/GodownHome.jsp</result> 
+           <!-- <result name="cardinghome">/HomePage.jsp</result>-->
+        </action>
+        
+        
+        
+         <action name="MiniPurchaseRtve" class="com.textile.struts.PurchaseAction" method="retrievepur1" >
+            <result name="success">/MiniPurchaseReports.jsp</result> 
+        </action>
+         <action name="purchasereports1" class="com.textile.struts.LoginAction" method="purchaseprofile">
+            <result name="success">/MiniPurchaseReports.jsp</result>
+        </action>
+        
+        <action name="purchaseDashboard" class="com.textile.struts.AddPurchaseAction" method="purchaseHome">
+            <result name="success">/GodownHome.jsp</result>
+            <result name="input">/godownPurchase.jsp</result>
+            <result name="purchase">/godownPurchase.jsp</result>
+            <result name="control">/godownPurchase.jsp</result>
+            <!--<result name="carding">/MyProfile.jsp</result>-->
+        </action>
+        <action name="MyProfile" class="com.textile.struts.LoginAction" method="purchaseprofile">
+            <result name="success">/MyProfile.jsp</result>
+        </action>
+        <action name="purchasereports" class="com.textile.struts.LoginAction" method="purchaseprofile">
+            <result name="success">/PurchaseReports.jsp</result>
+        </action>
+        
+      <action name="PurchaseRtve" class="com.textile.struts.PurchaseAction" method="retrievepur" >
+            <result name="success">/PurchaseReports.jsp</result> 
+        </action>
+         
+       
+        
+        <action name="addPurchase" method="purchase" class="com.textile.struts.AddPurchaseAction">
+            <result name="input">/godownPurchase.jsp</result>
+             <result name="fail">/godownPurchase.jsp</result>
+            <result name="view" type="redirectAction">purchaseview</result>
+        </action>
+        <action name="purchaseEdit" class="com.textile.struts.AddPurchaseAction" method="editPurchase">           
+            <result name="success">/UpdatePurchase.jsp</result>
+        </action>    
+        <action name="updatePurchase" class="com.textile.struts.AddPurchaseAction" method="updatePurchase">  
+            <result name="input">UpdatePurchase.jsp</result>         
+          <result name="success" type="redirectAction">purchaseview</result>
+        </action>  
+        <action name="purchaseDelete" class="com.textile.struts.AddPurchaseAction" method="deletePurchase">           
+             <result name="success" type="redirectAction">purchaseview</result>
+        </action>  
+        <action name="purchaseview" class="com.textile.struts.AddPurchaseAction" method="purchaseView" >
+            <result name="success">/PurchaseView.jsp</result> 
+        </action>
+        
+        
+        
+         <action name="productionhome" class="com.textile.struts.ProductionAction" method="productionHome">
+            <result name="success">/HomePage.jsp</result>
+            <result name="production">/ProductionHome.jsp</result>
+            <!--<result name="control">ProductionHome.jsp</result>--> 
+            <!--<result name="carding">/MyProfile.jsp</result>-->
+        </action>
+        
+        <action name="productionDashboard" class="com.textile.struts.ProductionAction" method="productionHome">
+            <result name="success">/HomePage.jsp</result>
+            <result name="production">/issuedepartment.jsp</result>
+            <result name="control">/issuedepartment.jsp</result> 
+            <!--<result name="carding">/MyProfile.jsp</result>-->
+        </action>
+        <action name="Production" class="com.textile.struts.ProductionAction" method="productionInsert">           
+            <result name="input">/issuedepartment.jsp</result>
+            <result name="success">/ProductionView.jsp</result>
+        </action>
+        <action name="ProductionReal" method="InsertProductionReal" class="com.textile.struts.ProductionAction">
+            <result name="input">/issuedepartment.jsp</result>
+          <result name="success" type="redirectAction">productionview</result>
+        </action>
+        <action name="productionview" class="com.textile.struts.ProductionAction" method="viewProduction">
+            <result name="success">ProductionView.jsp</result>
+        </action>
+        <action name="productionEdit" class="com.textile.struts.ProductionAction" method="editProduction">
+            <result name="success">ProductionUpdate.jsp</result>
+        </action>
+        <action name="productionUpdate" class="com.textile.struts.ProductionAction" method="updateProduction">
+             <result name="success" type="redirectAction">productionview</result>
+        </action>
+        <action name="productionDelete" class="com.textile.struts.ProductionAction" method="deleteProduction">
+            <result name="success" type="redirectAction">productionview</result>
+        </action>
+        <action name="MyProfile" class="com.textile.struts.LoginAction" method="productionprofile">
+            <result name="success">/MyProfile.jsp</result>
+        </action>
+        <action name="productionreports" class="com.textile.struts.LoginAction" method="productionprofile">
+            <result name="success">/ProductionReports.jsp</result>
+        </action>
+        <action name="ProductionRtve" class="com.textile.struts.RtproductionAction" method="retrieve1" >
+            <result name="success">/ProductionReports.jsp</result> 
+        </action> 
+       
+        <!--  Wastage --> 
+        
+        <action name="wastagehome" class="com.textile.struts.WastageAction" method="wastageHome">
+            <result name="success">/WastageHome.jsp</result>
+            <result name="wastage">/WastageHome.jsp</result>
+            <!--<result name="control">ProductionHome.jsp</result>--> 
+            <!--<result name="carding">/MyProfile.jsp</result>-->
+        </action>
+        
+        <action name="wastageDashboard" class="com.textile.struts.WastageAction" method="wastageHome">
+            <result name="success">/HomePage.jsp</result> 
+            <result name="wastage">/WastageHome.jsp</result> 
+            <result name="control">/WastageHome.jsp</result> 
+        </action>
+        <action name="wastageview" class="com.textile.struts.WastageAction" method="viewWastage">
+             <result name="success">/WastageView.jsp</result> 
+        </action>
+        <action name="wastageinsert" class="com.textile.struts.WastageAction" method="wastageInsert">
+             <result name="input">/WastageHome.jsp</result> 
+             <result name="success" type="redirectAction">wastageview</result> 
+        </action>
+        <action name="wastageinsertReal" class="com.textile.struts.WastageAction" method="WastageInsertReal">
+            <result name="input">/WastageHome.jsp</result> 
+            <result name="success" type="redirectAction">wastageview</result> 
+        </action>
+       <action name="wastagereports" class="com.textile.struts.LoginAction" method="wastageprofile">
+              <result name="success">/WastageReports.jsp</result> 
+       </action>
+       <action name="wastages" class="com.textile.struts.WastageRtveAction" method="retrieves">
+              <result name="success">/WastageReports.jsp</result> 
+       </action>
+       <action name="wastageDelete" class="com.textile.struts.WastageAction" method="WastageDelete">
+             <result name="success" type="redirectAction">wastageview</result> 
+       </action>
+       <action name="wastageEdit" class="com.textile.struts.WastageAction" method="WastageEdit">
+           <result name="success">/WastageUpdate.jsp</result> 
+       </action>
+        <action name="wastageUpdate" class="com.textile.struts.WastageAction" method="WastageUpdate">
+           <result name="success" type="redirectAction">wastageview</result> 
+       </action>
+        
+        
+         <action name="salereports1" class="com.textile.struts.LoginAction" method="saleprofile">
+            <result name="success">/MiniSaleReports.jsp</result>
+        </action>
+        <action name="MiniSaleRtve" class="com.textile.struts.SalesAction" method="retrievesale1" >
+            <result name="success">/MiniSaleReports.jsp</result> 
+        </action>
+        
+        <action name="addSale" class="com.textile.struts.GdSalesAction" method="executesale">           
+            <result name="input">/godownSale.jsp</result>
+           <result name="fail">/godownSale.jsp</result> 
+           <result name="success" type="redirectAction">saleview</result>
+        </action>
+        
+        <action name="SaleRtve" class="com.textile.struts.SalesAction" method="retrievesale" >
+            <result name="success">/SaleReports.jsp</result> 
+        </action>
+        <action name="saleDashboard" class="com.textile.struts.GdSalesAction" method="saleHome">
+            <result name="success">/HomePage.jsp</result>
+            <result name="sale">/godownSale.jsp</result>
+            <result name="control">/godownSale.jsp</result>
+            <!--<result name="carding">/MyProfile.jsp</result>-->
+        </action>
+        <action name="MyProfile" class="com.textile.struts.LoginAction" method="saleprofile">
+            <result name="success">/MyProfile.jsp</result>
+        </action>
+        <action name="salereports" class="com.textile.struts.LoginAction" method="saleprofile">
+            <result name="success">/SaleReports.jsp</result>
+        </action> 
+        <action name="saleview" class="com.textile.struts.GdSalesAction" method="saleView">
+            <result name="success">/SaleView.jsp</result>
+        </action>
+        <action name="saleEdit" class="com.textile.struts.GdSalesAction" method="saleEdit">
+            <result name="success">/UpdateSales.jsp</result>
+        </action>
+        <action name="updateSales" class="com.textile.struts.GdSalesAction" method="saleUpdate">
+            <result name="input">/UpdateSales.jsp</result>
+           <result name="success" type="redirectAction">saleview</result>
+        </action> 
+        <action name="saleDelete" class="com.textile.struts.GdSalesAction" method="saleDelete">
+            <result name="success" type="redirectAction">saleview</result>
+        </action>
+        <!--         <action name="Carding" class="com.textile.struts.CardingAction" method="retrieve" >
+                <result name="success">/Carding.jsp</result> 
+        </action>-->
+        
+        <action name="godownhome" class="com.textile.struts.LoginAction" method="purchaseprofile">
+            <result name="success">/GodownHome.jsp</result>
+        </action> 
+        
+        <!-- Godown Stock report -->
+       <action name="stockDashboard" class="com.textile.struts.StockReportAction" method="stockboard">
+            <!-- <result name="stock">/stock.jsp</result>-->
+            <result name="success">/stockReports.jsp</result>
+        </action> 
+        
+        
+           <action name="stockInsertCheck" class="com.textile.struts.StockReportAction" method="stockInsertChick">
+                 <result name="input">/stock.jsp</result>
+               <result name="success">/stock.jsp</result>
+        </action> 
+         <action name="stock" class="com.textile.struts.StockReportAction" method="stockRt">
+           <result name="input">/stockReports.jsp</result>   
+           <result name="fail">/stockReports.jsp</result>
+            <result name="back">/stockReports.jsp</result>
+           <result name="success">/stockReports.jsp</result>
+        </action>
+        
+         <action name="stockInsert" class="com.textile.struts.StockReportAction" method="stockInsert">
+            <result name="success">/stockReports.jsp</result>
+        </action> 
+        
+        
+     
+       <!--Pre Cleaning -->
+       <action name="precleaningDashboard" class="com.textile.struts.PrecleaningAction" method="precleaningHome">
+            <result name="success">/HomePage.jsp</result>
+            <result name="precleaning">/PrecleaningHome.jsp</result>
+       </action>
+        <action name="precleaninginsert" class="com.textile.struts.PrecleaningAction" method="precleaningInsert">           
+            <result name="input">/PrecleaningHome.jsp</result>
+            <result name="success">/PrecleaningView.jsp</result>
+        </action>
+        <action name="precleaninginsertReal" class="com.textile.struts.PrecleaningAction"  method="PrecleaningInsertReal">
+            <result name="input">/PrecleaningHome.jsp</result>
+            <result name="success" type="redirectAction">precleaningview</result>
+        </action>
+        <action name="precleaningview" class="com.textile.struts.PrecleaningAction" method="viewPrecleaning">
+            <result name="success">/PrecleaningView.jsp</result>
+        </action>
+        <action name="precleaningreports" class="com.textile.struts.LoginAction" method="precleaningprofile">
+            <result name="success">/PrecleaningReports.jsp</result>
+        </action>
+        <action name="precleaningDelete" class="com.textile.struts.PrecleaningAction" method="deletePrecleaning">
+            <result name="success" type="redirectAction">/precleaningview</result>
+        </action>
+       <action name="precleaningrtve" class="com.textile.struts.RtprecleanAction" method="retrieveprecleaning" >
+            <result name="success">/PrecleaningReports.jsp</result> 
+        </action> 
+       <action name="precleaningEdit" class="com.textile.struts.PrecleaningAction" method="editPrecleaning">
+            <result name="success">PrecleaningUpdate.jsp</result>
+        </action>
+        <action name="precleaningUpdate" class="com.textile.struts.PrecleaningAction" method="updatePrecleaning">
+            <result name="success" type="redirectAction">precleaningview</result>
+        </action>
+       
+        
+       
+       
+        
+        <!-- Settings  -->
+        <action name="insertLogin" class="com.textile.struts.SettingsAction" method="insertLogin">
+            <result name="input">/NewUser.jsp</result> 
+             <result name="fail">/NewUser.jsp</result> 
+            <result name="success" type="redirectAction">userView</result>
+        </action>
+        
+        
+        <action name="employeeEfficiency" class="com.textile.struts.SettingsAction" method="efficiency">
+            <result name="success">/EmpEffi.jsp</result>
+        </action>
+        
+        <action name="getEfficiency" class="com.textile.struts.SettingsAction" method="getEfficy">
+            <result name="success">/EmpEffi.jsp</result>
+        </action>
+        <action name="login" class="com.textile.struts.SettingsAction" method="example">
+            <result name="success">/NewUser.jsp</result>
+        </action>
+        
+        <action name="settingsHome" class="com.textile.struts.LoginAction" method="settingsHome1">
+            <result name="settingshome">/Settings.jsp</result>
+            <result name="control">/HomePage.jsp</result> 
+        </action>
+         <action name="settings" method="goback" class="com.textile.struts.SupervisorAction">
+            <result name="success">/Settings.jsp</result>
+        </action>
+        
+        <action name="newuserDashboard" class="com.textile.struts.SupervisorAction" method="usersettingsHome">
+            <result name="success">/NewUser.jsp</result>
+            <result name="control">/NewUser.jsp</result>
+        </action>
+       
+       
+        <action name="countDashboard" class="com.textile.struts.SettingsAction" method="settingsHome">
+            <result name="success">/count.jsp</result>
+            <result name="control">/count.jsp</result>
+        </action>
+        <action name="counts" method="countsinsert" class="com.textile.struts.CountAction">
+             <result name="fail">/count.jsp</result>
+             <result name="input">/count.jsp</result>
+            <result name="success" type="redirectAction">viewCount</result>
+        </action>
+         <action name="viewCount" method="retrievecount" class="com.textile.struts.CountAction">
+            <result name="success">/count2.jsp</result>
+           <!-- <result type="redirectAction">settingsHome</result> -->
+      </action>
+        
+        
+        <action name="countDelete" method="deleteCount" class="com.textile.struts.CountAction">
+            <result name="success" type="redirectAction">viewCount</result>
+        </action>
+       
+        <action name="supervisorDashboard" class="com.textile.struts.SupervisorAction" method="settingsHome">
+            <result name="success">/Supervisor.jsp</result>
+            <result name="control">/Supervisor.jsp</result>
+        </action>
+        <action name="superviser"  method="insertsupervisor" class="com.textile.struts.SupervisorAction">
+             <result name="fail">/Supervisor.jsp</result>
+            <result name="success" type="redirectAction">viewsuper</result>
+        </action>
+        
+         <action name="viewsuper" method="retrievesuperviser" class="com.textile.struts.SupervisorAction">
+            <result name="success">/SuperviserView.jsp</result>
+        </action>
+        
+        <action name="superviserDelete" method="deletesuperviser" class="com.textile.struts.SupervisorAction">
+            <result name="success" type="redirectAction">viewsuper</result>
+        </action>
+        
+         <!-- Settings update user -->
+         <action name="userView" method="viewLogin" class="com.textile.struts.SettingsAction">
+              <result name="success">/UserView.jsp</result>
+          </action>
+          <action name="userEdit" method="editLogin" class="com.textile.struts.SettingsAction">
+               <result name="success">/UserUpdate.jsp</result>
+          </action>
+          <action name="EditUser" method="editLogin" class="com.textile.struts.SettingsAction">
+              <result name="success">/changepwd.jsp</result>
+                      </action> 
+           <action name="userDelete" method="LoginDelete" class="com.textile.struts.SettingsAction">
+              <result name="success" type="redirectAction">userView</result>
+          </action>
+         <action name="userUpdate" method="loginUpdate" class="com.textile.struts.SettingsAction">
+              <result name="input">/UserUpdate.jsp</result>
+              <result name="success" type="redirectAction">userView</result>
+          </action>
+        <action name="userview" class="com.textile.struts.SettingsAction" method="viewLogin">
+            <result name="success">/UserView.jsp</result>
+        </action>
+        
+           <!-- Quality Module -->
+         
+        <action name="qualityInsert" method="qualityInsertion" class="com.textile.struts.QualityAction">
+            <result name="success">/qualityHome2.jsp</result> 
+        </action>
+        <action name="qualityInsertReal" method="InsertQualityReal" class="com.textile.struts.QualityAction">
+           <result name="success" type="redirectAction">qualityview</result>
+        </action>
+		
+        <action name="Quality" method="Superviser" class="com.textile.struts.QualityAction">
+            <result name="success">qualityHome2.jsp</result> 
+        </action>
+        <action name="QltyRtve" class="com.textile.struts.QualityRtveAction" method="retrieveQty">
+            <result name="input">/QualityReports.jsp</result> 
+            <result name="success">/QualityReports.jsp</result> 
+        </action>
+        <action name="qualityDashboard" class="com.textile.struts.QualityAction" method="qualityHome">
+            <result name="success">/HomePage.jsp</result>
+            <result name="quality">/qualityHome2.jsp</result>
+            <result name="control">/qualityHome2.jsp</result>
+            <!--<result name="carding">/MyProfile.jsp</result>-->
+        </action>
+        <action name="qualityHome" class="com.textile.struts.LoginAction" method="qualityHome1">
+            <result name="qualityhome">/HomePage.jsp</result>
+            <!--<result name="cardinghome">/HomePage.jsp</result>-->
+            
+        </action>
+        <action name="qualityprofile" class="com.textile.struts.LoginAction" method="qualityprofile">
+            <result name="success">/QualityProfile.jsp</result>
+        </action>
+        <action name="qualityreports" class="com.textile.struts.LoginAction" method="qualityprofile">
+            <result name="success">/QualityReports.jsp</result>
+        </action>
+        <action name="qualityEdit" class="com.textile.struts.QualityAction" method="qEdit">
+            <result name="success">/QualityView.jsp</result>
+        </action>
+        <action name="qualityUpdate" class="com.textile.struts.QualityAction" method="qUpdate">
+              <result name="success" type="redirectAction">qualityview</result>
+        </action>
+      <!--  <action name="QualityUpdateIns" class="com.textile.struts.QualityAction" method="qualUpdate">
+            <result name="success">/viewQuality.jsp</result>
+        </action> -->
+        <action name="qualityDelete" class="com.textile.struts.QualityAction" method="qDelete">
+          <result name="success" type="redirectAction">qualityview</result>
+        </action> 
+        <action name="qualityview" class="com.textile.struts.QualityAction" method="qualityView">
+            <result name="success">/viewQuality.jsp</result>
+        </action>
+        
+        
+        
+        <action name="MyProfile" class="com.textile.struts.LoginAction" method="qualityprofile">
+            <result name="success">/MyProfile.jsp</result>
+        </action>
+        
+        
+        
+        
+        <action name="MyProfile" class="com.textile.struts.LoginAction" method="qualityprofile">
+            <result name="success">/MyProfile.jsp</result>
+        </action>
+        
+        
+        
+        <!-- Packing Module -->
+        
+        
+        <action name="packinghome" class="com.textile.struts.PackingAction" method="superviser"> 
+            <result name="pack">/PackingTabs.jsp</result>
+            <result name="control">/PackingTabs.jsp</result> 
+            <!--<result name="cardinghome">/HomePage.jsp</result>-->
+        </action>
+        
+        <action name="packingDashboard" class="com.textile.struts.PackingAction" method="superviser"> 
+            <result name="pack">/PackingHome.jsp</result>        
+            <result name="success">/PackingHome.jsp</result>
+        </action>
+     <!--   <action name="insertPacking" class="com.textile.struts.PackingAction" method="insertPack">           
+            <result name="input">/PackingHome.jsp</result>
+             <result name="success" type="redirectAction">packingview</result> 
+        </action>
+        -->
+        <action name="Packingrtve" class="com.textile.struts.PackingAction" method="retrievePack">           
+            <result name="success">/PackRtve.jsp</result>
+        </action>
+        
+        <!-- view packing -->
+        <action name="packEdit" class="com.textile.struts.PackingAction" method="packingEdit">
+            <result name="success">/PackUpdate.jsp</result>
+        </action>
+        <action name="packUpdate" class="com.textile.struts.PackingAction" method="packingUpdate">
+            <result name="success" type="redirectAction">packingview</result>
+        </action> 
+       
+        <action name="insertPacking" method="insertPack" class="com.textile.struts.PackingAction">
+             <result name="input">/PackingHome.jsp</result>
+            <result name="packreports" type="redirectAction">packingview</result> 
+            <result name="packView" type="redirectAction">packingview</result> 
+           
+        </action>
+        
+        <action name="packDelete" class="com.textile.struts.PackingAction" method="packingDelete">
+            <result name="success" type="redirectAction">packingview</result>
+        </action> 
+        <action name="packingHome" class="com.textile.struts.PackingAction" method="packingHome1">
+            <result name="success">/HomePage.jsp</result>
+        </action>
+        
+        <action name="packingreports" class="com.textile.struts.PackingAction" method="packingretrieve">
+            <result name="success">/PackRtve.jsp</result>
+        </action> 
+        <action name="packingview" class="com.textile.struts.PackingAction" method="packingView">
+            <result name="success">/PackView.jsp</result>
+        </action>
+         <action name="packval" class="com.textile.struts.PackingAction" method="packval">
+             <result name="input">/PackHome.jsp</result>   
+             <result name="pack">/PackHome.jsp</result>
+             <result name="fail" type="redirectAction">packingDashboard</result>
+            <result name="success">/PackingHome.jsp</result>
+            <result name="packing">/PackingHome.jsp</result>
+        </action>
+        
+        
+        <!-- Dispatch packing -->
+        
+
+        
+        <action name="dispatchreports" class="com.textile.struts.dispatchAction" method="dispatchreports">
+            <result name="success">/DispatchReports.jsp</result> 
+        </action>
+        
+        <action name="dispatchrtve" class="com.textile.struts.dispatchAction" method="dispatchretrieve">
+            <result name="input">/DispatchReports.jsp</result> 
+        </action>
+        
+        <action name="dispatchDashboard" class="com.textile.struts.dispatchAction" method="dispatchHome">
+            <result name="input">/Dispatch.jsp</result>
+            <result name="dispatch">/Dispatch.jsp</result>
+            <result name="control">/Dispatch.jsp</result> 
+            <result name="success">/HomePage.jsp</result>
+            <!--<result name="carding">/MyProfile.jsp</result>-->
+        </action>
+        <action name="addDispatch" class="com.textile.struts.dispatchAction" method="insertDispatch">
+            <result name="input">/Dispatch.jsp</result>
+            <result name="fail">/Dispatch.jsp</result>
+            <result name="view" type="redirectAction">dispatchview</result>
+            <!--<result name="carding">/MyProfile.jsp</result>-->
+        </action>  
+        <action name="dispatchview" class="com.textile.struts.dispatchAction" method="dispatchView">
+            <result name="success">/DispatchView.jsp</result> 
+        </action> 
+        <action name="dispatchDelete" class="com.textile.struts.dispatchAction" method="dispatchDelete">
+            <result name="success" type="redirectAction">dispatchview</result> 
+        </action> 
+        <action name="dispatchEdit" class="com.textile.struts.dispatchAction" method="dispatchEdit">
+            <result name="success">/DispatchUpdate.jsp</result> 
+        </action>
+        <action name="updateDispatch" class="com.textile.struts.dispatchAction" method="dispatchUpdate">
+            <result name="input">/DispatchUpdate.jsp</result>
+            <result name="success" type="redirectAction">dispatchview</result> 
+        </action>
+        <action name="dispatchreports" class="com.textile.struts.LoginAction" method="dispatchprofile">
+            <result name="success">DispatchReports.jsp</result> 
+        </action>
+        
+        <action name="packstock" class="com.textile.struts.dispatchAction" method="dispatchStock">
+            <result name="success">/PackStockbags.jsp</result> 
+        </action>
+        <action name="stockret" class="com.textile.struts.PackingAction" method="stockRetrieve">
+            <result name="fail">/PackStockbags.jsp</result>
+            <result name="success">/PackStockbags.jsp</result> 
+        </action>
+         
+        
+        <action name="packingstock" class="com.textile.struts.PackingAction" method="packingretrieve">
+            <result name="success">/packstockHome.jsp</result> 
+        </action>
+         <action name="readytopack" class="com.textile.struts.PackingAction" method="packingreports">
+            <result name="success">/PackStock.jsp</result> 
+        </action> 
+        <action name="stockpack" class="com.textile.struts.PackingAction" method="stockRetrieve1">
+            <result name="fail">/PackStock.jsp</result> 
+            <result name="success">/PackStock.jsp</result> 
+        </action> 
+        
+        <!-- Power -->
+        
+        <action name="powerDelete" class="com.textile.struts.PowerAction" method="deletePower">
+            <result name="success" type="redirectAction">powerView</result>
+        </action> 
+      <action name="PowerInsert" class="com.textile.struts.PowerAction" method="executepower">           
+            <result name="input">/PowerHome.jsp</result>
+            
+         </action> 
+         
+         <action name="insertReal" class="com.textile.struts.PowerAction" method="InsertPowerReal">    
+         <result name="success" type="redirectAction">powerView</result>
+         </action>
+        
+        <action name="super" class="com.textile.struts.PowerAction" method="inReal">    
+                <result name="success">/PowerHome.jsp</result>
+           
+        </action>
+        <action name="powerEdit" class="com.textile.struts.PowerAction" method="editPower">    
+                <result name="success">/powerUpdate.jsp</result>
+           
+        </action>
+        <action name="updatePower" class="com.textile.struts.PowerAction" method="updatePower">    
+                <result name="success" type="redirectAction">powerView</result>
+           
+        </action>
+        
+        <action name="ElecRtve" class="com.textile.struts.PowerAction" method="retrPower">    
+                <result name="success">/PowerRtve.jsp</result>
+      </action>
+       <action name="powerHome" class="com.textile.struts.PowerAction" method="powerHome">    
+                <result name="success">/HomePage.jsp</result>
+      </action>
+      
+        <action name="powerView" class="com.textile.struts.PowerAction" method="retrievePower">    
+                <result name="success">/viewPower.jsp</result>
+      </action>
+      <action name="powerretrieve" class="com.textile.struts.PowerAction" method="retrievepower">    
+                <result name="success">/PowerRtve.jsp</result>
+      </action>
+      
+      <!--Packing Patterns-->
+      
+      <action name="patternDashboard" class="com.textile.struts.SettingsAction" method="settingsHome">
+            <result name="success">/patterns.jsp</result>
+            <result name="control">/patterns.jsp</result>
+        </action>
+      
+        <action name="pattern" class="com.textile.struts.patternaction" method="patterninsert">
+            <result name="input">/patterns.jsp</result>
+            <result name="success" type="redirectAction">viewpattern</result>
+        </action>
+      
+        <action name="viewpattern" class="com.textile.struts.patternaction" method="retrievepattern">
+            <result name="success">/pattern2.jsp</result>
+        </action>
+    
+    <action name="patternDelete" class="com.textile.struts.patternaction" method="deletepattern">
+            <result name="success" type="redirectAction">viewpattern</result>
+        </action>
+        <action name="patternedit" class="com.textile.struts.patternaction" method="editpattern">
+            
+            <result name="success">/patternupdate.jsp</result>
+        </action>
+         <action name="patternupdate" class="com.textile.struts.patternaction" method="updatep">
+             <result name="input">/patternupdate.jsp</result>
+            <result name="success" type="redirectAction">viewpattern</result>
+        </action>
+        
+        
+<!--        packer-->
+<action name="packerDashboard" class="com.textile.struts.SettingsAction" method="settingsHome">
+            <result name="success">/packer.jsp</result>
+            <result name="control">/packer.jsp</result>
+        </action>
+        <action name="packer" class="com.textile.struts.packeraction" method="insertpacker">
+            <result name="input">/packer.jsp</result>
+            <result name="fail">/packer.jsp</result>
+            <result name="success" type="redirectAction">viewpacker</result>
+        </action>
+        
+        <action name="viewpacker" class="com.textile.struts.packeraction" method="retrievepacker">
+            <result name="success">/packerview.jsp</result>
+        </action>
+        
+        <action name="packerDelete" class="com.textile.struts.packeraction" method="deletepacker">
+            <result name="success" type="redirectAction">viewpacker</result>
+        </action>
+        
+        <!--product-->
+        
+        <action name="productDashboard" class="com.textile.struts.SettingsAction" method="settingsHome">
+            <result name="success">/product.jsp</result>
+            <result name="control">/product.jsp</result>
+        </action>
+        
+        <action name="productinsert" class="com.textile.struts.productaction" method="insertproduct">
+            <result name="fail">/product.jsp</result>
+            <result name="success" type="redirectAction">viewproduct</result>
+        </action>
+        
+        <action name="viewproduct" class="com.textile.struts.productaction" method="retrieveproduct">
+            <result name="success">/productview.jsp</result>
+        </action>      
+        
+        <action name="productDelete" class="com.textile.struts.productaction" method="deleteproduct">
+            <result name="success" type="redirectAction">viewproduct</result>
+        </action>  
+        <action name="productEdit" class="com.textile.struts.productaction" method="editproduct">
+            <result name="success" >/productupdate.jsp</result>
+        </action>
+        <action name="productUpdate" class="com.textile.struts.productaction" method="updateproduct">
+            <result name="success" type="redirectAction">viewproduct</result>
+        </action>
+        <action name="financialyear" class="com.textile.struts.Backupaction" method="endyear">
+            <result name="success">Financial.jsp</result>
+        </action>
+        <action name="enddate" class="com.textile.struts.Backupaction" method="endDate">
+            <result name="input">Financial.jsp</result>
+            <result name="success">backuptab.jsp</result>
+        </action> 
+        <action name="backuptab" class="com.textile.struts.Backupaction" method="backtab">
+            <result name="success">backuptab.jsp</result>
+        </action>  
+        <action name="end" class="com.textile.struts.Backupaction" method="backdate">
+            <result name="success">Financial.jsp</result>
+        </action> 
+        
+        <!-- BackUp data -->
+         <action name="backdate" class="com.textile.struts.Backupaction" method="BackupTab">
+            <result name="success">Backup.jsp</result>
+         </action> 
+         <action name="backupinsert" class="com.textile.struts.Backupaction" method="backupInsert">
+            <result name="success">Backup.jsp</result>
+             <result name="backup">backuptab.jsp</result>
+         </action> 
+        
+        <!-- Yearly Reports -->
+        <action name="yearlytab" class="com.textile.struts.Backupaction" method="yearlyTab">
+            <result name="success">Yearlyreport.jsp</result>
+        </action> 
+        <action name="yearrt" class="com.textile.struts.Backupaction" method="yearRt">
+             <result name="purchase">PurchaseReports.jsp</result>
+             <result name="department">ProductionReports.jsp</result>  
+             <result name="preclean">PrecleaningReports.jsp</result> 
+             <result name="waste">WastageReports.jsp</result> 
+             <result name="sale">SaleReports.jsp</result> 
+             <result name="stock">stockReports.jsp</result> 
+             <result name="carding">CardingReportsMain.jsp</result>     
+             <result name="drawing">DrawingReportsmain.jsp</result>     
+             <result name="oe">MainOeReports.jsp</result>
+             <result name="quality">QualityReports.jsp</result>     
+             <result name="power">PowerRtve.jsp</result>  
+             <result name="Packing">PackRtve.jsp</result>    
+             <result name="dispatch">DispatchReports.jsp</result> 
+             <result name="readypack">PackStock.jsp</result> 
+             <result name="packstock">PackStockbags.jsp</result>      
+             <result name="success">Yearlyreport.jsp</result> 
+        </action> 
+        
+        
+        <!--        Year End Calculations-->
+        <action name="YCalculations" class="com.textile.struts.YearEndCals" method="avlbleYears">
+            <result name="success">DCals.jsp</result>
+        </action>
+        <action name="closeYear" class="com.textile.struts.YearEndCals" method="closeCurrntYear">
+             <result name="forward">index.jsp</result>
+            <result name="success">DCals.jsp</result>
+        </action>
+        
+        <action name="financialReports" class="com.textile.struts.YearEndCals" method="yearlyRepts">
+             <result name="fail">DCals.jsp</result>
+              <result name="forward">index.jsp</result>
+            <result name="success">DCals.jsp</result>
+        </action>
+                
+     </package>
+</struts>

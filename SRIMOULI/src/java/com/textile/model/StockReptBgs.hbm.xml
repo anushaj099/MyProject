@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+   <class name="com.textile.model.StockReptBgs" table="stock_rept_bgs" catalog="srimouli2" optimistic-lock="version">
+        <id name="ids" type="java.lang.Integer">
+            <column name="ids" />
+            <generator class="identity" />
+        </id>
+        <property name="date" type="date">
+            <column name="date" length="10" />
+        </property>
+        <property name="count" type="java.lang.Integer">
+            <column name="count" />
+        </property>
+        <property name="typeOfPack" type="string">
+            <column name="type_of_pack" length="20" />
+        </property>
+        <property name="packWt" type="string">
+            <column name="pack_wt" length="20" />
+        </property>
+        <property name="openStk" type="java.lang.Float">
+            <column name="open_stk" precision="10" scale="6" />
+        </property>
+        <property name="packedBags" type="java.lang.Float">
+            <column name="packed_bags" precision="10" />
+        </property>
+        <property name="dispatch" type="java.lang.Float">
+            <column name="dispatch" precision="10" scale="6" />
+        </property>
+        <property name="closingStk" type="java.lang.Float">
+            <column name="closing_stk" precision="10" scale="6" />
+        </property>
+        <property name="closingStkKgs" type="java.lang.Float">
+            <column name="closing_stk_kgs" precision="10" />
+        </property>
+    </class>
+</hibernate-mapping>

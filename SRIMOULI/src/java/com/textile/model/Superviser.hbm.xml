@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2017 2:59:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.textile.model.Superviser" table="superviser" catalog="srimouli2" optimistic-lock="version">
+        <id name="ids" type="java.lang.Integer">
+            <column name="ids" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="30" />
+        </property>
+        <set name="parentQualities" table="parent_quality" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idps" />
+            </key>
+            <one-to-many class="com.textile.model.ParentQuality" />
+        </set>
+    </class>
+</hibernate-mapping>

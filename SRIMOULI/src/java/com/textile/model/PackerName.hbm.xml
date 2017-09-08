@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2017 2:59:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.textile.model.PackerName" table="packer_name" catalog="srimouli2" optimistic-lock="version">
+        <id name="idn" type="java.lang.Integer">
+            <column name="idn" />
+            <generator class="identity" />
+        </id>
+        <property name="packerName" type="string">
+            <column name="packer_name" length="30" />
+        </property>
+    </class>
+</hibernate-mapping>

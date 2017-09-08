@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2017 2:59:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.textile.model.Stock" table="stock" catalog="srimouli2" optimistic-lock="version">
+        <id name="ids" type="java.lang.Integer">
+            <column name="ids" />
+            <generator class="identity" />
+        </id>
+        <property name="date" type="date">
+            <column name="date" length="10" />
+        </property>
+        <property name="variety" type="string">
+            <column name="variety" length="20" />
+        </property>
+        <property name="stockQuantity" type="java.lang.Float">
+            <column name="stock_quantity" precision="10" scale="6" />
+        </property>
+        <property name="stockKgs" type="java.lang.Float">
+            <column name="stock_kgs" precision="10" />
+        </property>
+        <property name="stockAvg" type="java.lang.Float">
+            <column name="stock_avg" precision="10" />
+        </property>
+    </class>
+</hibernate-mapping>

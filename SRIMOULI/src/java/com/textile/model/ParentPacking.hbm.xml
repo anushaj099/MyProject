@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 1, 2017 4:28:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.textile.model.ParentPacking" table="parent_packing" catalog="srimouli2" optimistic-lock="version">
+        <id name="idpq" type="java.lang.Integer">
+            <column name="idpq" />
+            <generator class="identity" />
+        </id>
+        <property name="date" type="date">
+            <column name="date" length="10" />
+        </property>
+        <property name="supervisor" type="string">
+            <column name="supervisor" length="20" />
+        </property>
+        <property name="shifts" type="string">
+            <column name="shifts" length="20" />
+        </property>
+        <property name="evocher" type="string">
+            <column name="evocher" length="20" />
+        </property>
+        <property name="totalOpeningStock" type="java.lang.Float">
+            <column name="total_opening_stock" precision="10" scale="6" />
+        </property>
+        <property name="totalPackedBags" type="java.lang.Float">
+            <column name="total_packed_bags" precision="10" />
+        </property>
+        <property name="totalNoofkgsPacked" type="java.lang.Float">
+            <column name="total_noofkgs_packed" precision="10" />
+        </property>
+        <property name="totalDispatch" type="java.lang.Float">
+            <column name="total_dispatch" precision="10" />
+        </property>
+        <property name="totalDisclose" type="java.lang.Float">
+            <column name="total_disclose" precision="10" />
+        </property>
+        <set name="childPackings" table="child_packing" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idpq" />
+            </key>
+            <one-to-many class="com.textile.model.ChildPacking" />
+        </set>
+    </class>
+</hibernate-mapping>

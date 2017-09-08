@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2017 2:59:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.textile.model.ProductsSample" table="products_sample" catalog="srimouli2" optimistic-lock="version">
+        <id name="idl" type="java.lang.Integer">
+            <column name="idl" />
+            <generator class="identity" />
+        </id>
+        <property name="productName" type="string">
+            <column name="product_name" length="30" />
+        </property>
+        <property name="partialType" type="string">
+            <column name="partial_type" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

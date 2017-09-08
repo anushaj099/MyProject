@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2017 2:59:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.textile.model.StockReportA" table="stock_report_a" catalog="srimouli2" optimistic-lock="version">
+        <id name="ids" type="java.lang.Integer">
+            <column name="ids" />
+            <generator class="identity" />
+        </id>
+        <property name="date" type="date">
+            <column name="date" length="10" />
+        </property>
+        <property name="variety" type="string">
+            <column name="variety" length="20" />
+        </property>
+        <property name="receivedQuantity" type="java.lang.Float">
+            <column name="received_quantity" precision="10" />
+        </property>
+        <property name="receivedKgs" type="java.lang.Float">
+            <column name="received_kgs" precision="10" />
+        </property>
+        <property name="receivedAvg" type="java.lang.Float">
+            <column name="received_avg" precision="10" />
+        </property>
+        <property name="issuepQuantity" type="java.lang.Float">
+            <column name="issuep_quantity" precision="10" scale="6" />
+        </property>
+        <property name="issuepKgs" type="java.lang.Float">
+            <column name="issuep_kgs" precision="10" />
+        </property>
+        <property name="issuepAvg" type="java.lang.Float">
+            <column name="issuep_avg" precision="10" />
+        </property>
+        <property name="issuedQuantity" type="java.lang.Float">
+            <column name="issued_quantity" precision="10" />
+        </property>
+        <property name="issuedKgs" type="java.lang.Float">
+            <column name="issued_kgs" precision="10" />
+        </property>
+        <property name="issuedAvg" type="java.lang.Float">
+            <column name="issued_avg" precision="10" />
+        </property>
+        <property name="saleQuantity" type="java.lang.Float">
+            <column name="sale_quantity" precision="10" />
+        </property>
+        <property name="saleKgs" type="java.lang.Float">
+            <column name="sale_kgs" precision="10" />
+        </property>
+        <property name="saleAvg" type="java.lang.Float">
+            <column name="sale_avg" precision="10" />
+        </property>
+        <property name="stockQuantity" type="java.lang.Float">
+            <column name="stock_quantity" precision="10" />
+        </property>
+        <property name="stockKgs" type="java.lang.Float">
+            <column name="stock_kgs" precision="10" />
+        </property>
+        <property name="stockAvg" type="java.lang.Float">
+            <column name="stock_avg" precision="10" />
+        </property>
+    </class>
+</hibernate-mapping>

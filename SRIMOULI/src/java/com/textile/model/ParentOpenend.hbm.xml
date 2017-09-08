@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2017 2:59:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.textile.model.ParentOpenend" table="parent_openend" catalog="srimouli2" optimistic-lock="version">
+        <id name="ido" type="java.lang.Integer">
+            <column name="ido" />
+            <generator class="identity" />
+        </id>
+        <property name="date" type="date">
+            <column name="date" length="10" />
+        </property>
+        <property name="superviser" type="string">
+            <column name="superviser" length="20" />
+        </property>
+        <property name="shifts" type="string">
+            <column name="shifts" length="20" />
+        </property>
+        <property name="totalEp" type="java.lang.Float">
+            <column name="total_EP" precision="10" />
+        </property>
+        <property name="totalAp" type="java.lang.Float">
+            <column name="total_AP" precision="10" />
+        </property>
+        <property name="totalEfcy" type="java.lang.Float">
+            <column name="total_efcy" precision="10" scale="4" />
+        </property>
+        <property name="totalBreakeges" type="string">
+            <column name="total_breakeges" length="50" />
+        </property>
+        <property name="totalHpEfcy" type="java.lang.Float">
+            <column name="total_hp_efcy" precision="10" />
+        </property>
+        <set name="childOpenends" table="child_openend" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ido" />
+            </key>
+            <one-to-many class="com.textile.model.ChildOpenend" />
+        </set>
+    </class>
+</hibernate-mapping>

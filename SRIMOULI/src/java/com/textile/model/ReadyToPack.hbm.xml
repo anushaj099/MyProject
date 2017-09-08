@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+   <class name="com.textile.model.ReadyToPack" table="ready_to_pack" catalog="srimouli2" optimistic-lock="version">
+        <id name="ido" type="java.lang.Integer">
+            <column name="ido" />
+            <generator class="identity" />
+        </id>
+        <property name="date" type="date">
+            <column name="date" length="10" />
+        </property>
+        <property name="count" type="java.lang.Integer">
+            <column name="count" />
+        </property>
+        <property name="openingStockKgs" type="java.lang.Float">
+            <column name="opening_stock_kgs" precision="10" />
+        </property>
+        <property name="packedbagsKgs" type="java.lang.Float">
+            <column name="packedbags_kgs" precision="10" />
+        </property>
+        <property name="readytopackKgs" type="java.lang.Float">
+            <column name="readytopack_kgs" precision="10" scale="4" />
+        </property>
+    </class>
+</hibernate-mapping>

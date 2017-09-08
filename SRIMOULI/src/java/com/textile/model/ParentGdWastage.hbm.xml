@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2017 2:59:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.textile.model.ParentGdWastage" table="parent_gd_wastage" catalog="srimouli2" optimistic-lock="version">
+        <id name="idw" type="java.lang.Integer">
+            <column name="idw" />
+            <generator class="identity" />
+        </id>
+        <property name="date" type="date">
+            <column name="date" length="10" />
+        </property>
+        <property name="receiptNo" type="string">
+            <column name="receipt_no" length="20" />
+        </property>
+        <property name="totalBales" type="java.lang.Float">
+            <column name="total_bales" precision="10" />
+        </property>
+        <property name="totalWeight" type="java.lang.Float">
+            <column name="total_weight" precision="10" />
+        </property>
+        <set name="childGdWastages" table="child_gd_wastage" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idw" />
+            </key>
+            <one-to-many class="com.textile.model.ChildGdWastage" />
+        </set>
+    </class>
+</hibernate-mapping>

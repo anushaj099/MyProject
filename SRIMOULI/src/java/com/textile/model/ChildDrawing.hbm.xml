@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2017 2:59:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.textile.model.ChildDrawing" table="child_drawing" catalog="srimouli2" optimistic-lock="version">
+        <id name="idp" type="java.lang.Integer">
+            <column name="idp" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="parentDrawing" class="com.textile.model.ParentDrawing" fetch="select">
+            <column name="idd" />
+        </many-to-one>
+        <property name="carding" type="string">
+            <column name="carding" length="20" />
+        </property>
+        <property name="deliveryHank" type="java.lang.Float">
+            <column name="delivery_hank" precision="10" scale="4" />
+        </property>
+        <property name="mcSpeed" type="java.lang.Float">
+            <column name="MC_speed" precision="10" scale="6" />
+        </property>
+        <property name="mcRunning" type="java.lang.Float">
+            <column name="MC_running" precision="10" />
+        </property>
+        <property name="expectedProduction" type="java.lang.Float">
+            <column name="Expected_production" precision="10" />
+        </property>
+        <property name="actualProduction" type="java.lang.Float">
+            <column name="Actual_production" precision="10" />
+        </property>
+        <property name="efficiency" type="java.lang.Float">
+            <column name="efficiency" precision="10" scale="4" />
+        </property>
+        <property name="breakedInShifts" type="string">
+            <column name="Breaked_in_shifts" length="20" />
+        </property>
+        <property name="remarks" type="string">
+            <column name="remarks" length="65535" />
+        </property>
+        <property name="empId" type="java.lang.Integer">
+            <column name="empId" />
+        </property>
+    </class>
+</hibernate-mapping>

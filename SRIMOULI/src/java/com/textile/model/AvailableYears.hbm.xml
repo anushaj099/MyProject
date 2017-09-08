@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+   <class name="com.textile.model.AvailableYears" table="available_years" catalog="srimouli2" optimistic-lock="version">
+        <id name="ids" type="java.lang.Integer">
+            <column name="ids" />
+            <generator class="identity" />
+        </id>
+        <property name="date" type="date">
+            <column name="date" length="10" />
+        </property>
+        <property name="closedYears" type="string">
+            <column name="closed_years" length="50" />
+        </property>
+        <property name="closedFrom" type="date">
+            <column name="closed_from" length="20" />
+        </property>
+        <property name="closedTo" type="date">
+            <column name="closed_To" length="20" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="20" />
+        </property>
+       
+       
+    </class>
+</hibernate-mapping>

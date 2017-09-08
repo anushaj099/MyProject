@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2017 2:59:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.textile.model.FinancialYearBackup" table="financial_year_backup" catalog="srimouli2" optimistic-lock="version">
+        <id name="idf" type="java.lang.Integer">
+            <column name="idf" />
+            <generator class="identity" />
+        </id>
+        <property name="yearendDate" type="date">
+            <column name="yearend_date" length="10" />
+        </property>
+        <property name="backupDate" type="date">
+            <column name="backup_date" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>
