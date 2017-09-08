@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 17, 2017 10:31:59 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.readymix.model.ChBillOfSupply" table="ch_bill_of_supply" catalog="vsk" optimistic-lock="version">
+        <id name="srNo" type="java.lang.Integer">
+            <column name="sr_no" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="prBillOfSupply" class="com.readymix.model.PrBillOfSupply" fetch="select">
+            <column name="cid" not-null="true" />
+        </many-to-one>
+        <property name="productDesc" type="string">
+            <column name="product_desc" length="65535" />
+        </property>
+        <property name="hsnCode" type="string">
+            <column name="HSN_code" length="50" />
+        </property>
+        <property name="qty" type="java.lang.Integer">
+            <column name="Qty" />
+        </property>
+        <property name="beforeTax" type="java.lang.Float">
+            <column name="before_tax" precision="20" scale="8" />
+        </property>
+        <property name="afterTax" type="java.lang.Float">
+            <column name="after_tax" precision="20" scale="8" />
+        </property>
+        <property name="amt" type="java.lang.Float">
+            <column name="amt" precision="20" scale="8" />
+        </property>
+        <property name="valueOfSupply" type="java.lang.Float">
+            <column name="value_of_supply" precision="20" scale="8" />
+        </property>
+        <property name="chTotal" type="java.lang.Float">
+            <column name="ch_total" precision="20" scale="8" />
+        </property>
+    </class>
+</hibernate-mapping>
