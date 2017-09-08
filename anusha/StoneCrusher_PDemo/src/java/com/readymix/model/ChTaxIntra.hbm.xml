@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 28, 2017 4:51:30 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.readymix.model.ChTaxIntra" table="ch_tax_intra" catalog="stonecrusherpdemo" optimistic-lock="version">
+        <id name="srNo" type="java.lang.Integer">
+            <column name="Sr_no" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="prTaxIntra" class="com.readymix.model.PrTaxIntra" fetch="select">
+            <column name="ptc_id" />
+        </many-to-one>
+        <property name="productDesc" type="string">
+            <column name="product_desc" length="65535" />
+        </property>
+        <property name="hsnCode" type="string">
+            <column name="HSN_code" length="50" />
+        </property>
+        <property name="qty" type="java.lang.Float">
+            <column name="qty" precision="10" />
+        </property>
+        <property name="beforeTax" type="java.lang.Float">
+            <column name="before_tax" precision="20" scale="8" />
+        </property>
+        <property name="afterTax" type="java.lang.Float">
+            <column name="after_tax" precision="20" scale="8" />
+        </property>
+        <property name="rate" type="java.lang.Float">
+            <column name="rate" precision="20" scale="8" />
+        </property>
+        <property name="amount" type="java.lang.Float">
+            <column name="amount" precision="20" scale="8" />
+        </property>
+        <property name="taxableValue" type="java.lang.Float">
+            <column name="taxable_value" precision="20" scale="8" />
+        </property>
+        <property name="cgRate" type="java.lang.Float">
+            <column name="cg_rate" precision="10" />
+        </property>
+        <property name="cgAmt" type="java.lang.Float">
+            <column name="cg_amt" precision="20" scale="8" />
+        </property>
+        <property name="sgRate" type="java.lang.Float">
+            <column name="sg_rate" precision="10" />
+        </property>
+        <property name="sgAmt" type="java.lang.Float">
+            <column name="sg_amt" precision="20" scale="8" />
+        </property>
+        <property name="chTotal" type="java.lang.Float">
+            <column name="ch_total" precision="20" scale="8" />
+        </property>
+        <property name="uom" type="string">
+            <column name="uom" length="20" />
+        </property>
+    </class>
+</hibernate-mapping>

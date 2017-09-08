@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/stonecrusherpdemo</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">12345</property>
+    <mapping resource="com/readymix/model/ChTaxIntra.hbm.xml"/>
+    <mapping resource="com/readymix/model/Login.hbm.xml"/>
+    <mapping resource="com/readymix/model/ChDebitNote.hbm.xml"/>
+    <mapping resource="com/readymix/model/PrCreditNote.hbm.xml"/>
+    <mapping resource="com/readymix/model/ChCreditNote.hbm.xml"/>
+    <mapping resource="com/readymix/model/ChRevisedInvoice.hbm.xml"/>
+    <mapping resource="com/readymix/model/PrTaxIntra.hbm.xml"/>
+    <mapping resource="com/readymix/model/ChBillOfSupply.hbm.xml"/>
+    <mapping resource="com/readymix/model/PrDebitNote.hbm.xml"/>
+    <mapping resource="com/readymix/model/PrReceiptVoucher.hbm.xml"/>
+    <mapping resource="com/readymix/model/ChReceiptVoucher.hbm.xml"/>
+    <mapping resource="com/readymix/model/PrRevisedInvoice.hbm.xml"/>
+    <mapping resource="com/readymix/model/PrBillOfSupply.hbm.xml"/>
+    <mapping resource="com/readymix/model/Grades.hbm.xml"/>
+    <mapping resource="com/readymix/model/Uom.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

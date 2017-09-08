@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="stonecrusherpdemo"/>
+  <table-filter match-name="ch_revised_invoice"/>
+  <table-filter match-name="pr_bill_of_supply"/>
+  <table-filter match-name="ch_receipt_voucher"/>
+  <table-filter match-name="pr_debit_note"/>
+  <table-filter match-name="ch_credit_note"/>
+  <table-filter match-name="pr_receipt_voucher"/>
+  <table-filter match-name="ch_tax_intra"/>
+  <table-filter match-name="ch_debit_note"/>
+  <table-filter match-name="login"/>
+  <table-filter match-name="pr_credit_note"/>
+  <table-filter match-name="pr_tax_intra"/>
+  <table-filter match-name="uom"/>
+  <table-filter match-name="grades"/>
+  <table-filter match-name="pr_revised_invoice"/>
+  <table-filter match-name="ch_bill_of_supply"/>
+</hibernate-reverse-engineering>

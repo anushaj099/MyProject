@@ -1,0 +1,226 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default" namespace="/">
+        
+        <interceptors>
+		<interceptor class="com.textile.interceptor.LoginInterceptor" name="loginInterceptor">
+			</interceptor>
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="loginInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+	</interceptors>
+        <default-interceptor-ref name="loginStack"/>         
+         <global-results>
+		<result name="login">/index.jsp</result>
+	</global-results>
+        
+        
+        
+        <action name="insert" class="com.readymix.action.LoginForm" method="login">
+             <result name="fail">/index.jsp</result> 
+            <result name="forward" type="redirectAction">advanceinsert</result>
+        </action>
+        
+        <action name="advanceinsert" class="com.readymix.action.LoginAction" method="login">
+            <result name="success">/index.jsp</result>
+            <result name="user">/UserDashboard.jsp</result>
+            <result name="control">/Dashboard.jsp</result>
+        </action>
+        
+        <action name="logout" class="com.readymix.action.LoginAction" method="logout">
+	<result name="success">/index.jsp</result>
+	</action>
+        
+         <action name="dashboard" class="com.readymix.action.LoginAction" method="displayDashboard">
+	 <result name="404err">/404error.jsp</result>
+            <result name="user">/UserDashboard.jsp</result>
+            <result name="control">/Dashboard.jsp</result>
+	</action>
+        
+        <action name="myprofile" class="com.readymix.action.LoginAction" method="myProfile">
+	      <result name="success">/MyProfile.jsp</result>
+	</action>
+        
+         <action name="viewcommoninvoice" class="com.readymix.action.LoginAction" method="viewInvoice">
+	      <result name="success">/viewinvoice.jsp</result>
+	</action>
+        
+          <action name="viewsupplyinvoice" class="com.readymix.action.LoginAction" method="viewsupplyInvoice">
+	      <result name="success">/viewsupplyInvoice.jsp</result>
+	</action>
+        
+        
+      <!--       USER PROFILE                -->  
+        <action name="userview" class="com.readymix.action.LoginAction" method="userView">
+	      <result name="success">/ViewUser.jsp</result>
+	</action>
+        
+         <action name="userview2" class="com.readymix.action.LoginAction" method="userView">
+	      <result name="success">/ViewUser.jsp</result>
+	</action>
+        
+        <action name="newuser" class="com.readymix.action.LoginAction" method="newUser">
+	      <result name="success">/registration.jsp</result>
+	</action>
+        
+          <action name="register" class="com.readymix.action.LoginAction" method="insertLogin">
+            <result name="fail">/registration.jsp</result> 
+            <result name="success" >/Dashboard.jsp</result>
+          </action> 
+          
+          <action name="deleteuser" class="com.readymix.action.LoginAction" method="deleteUser">
+	      <result name="success" type="redirectAction">userview2</result>
+	 </action> 
+         
+           <action name="edituser" class="com.readymix.action.LoginAction" method="editUser">
+	      <result name="success">/UpdateUser.jsp</result>
+	 </action> 
+         
+         
+           <action name="updateuser" class="com.readymix.action.LoginAction" method="updateUser">
+               <result name="fail">/UpdateUser.jsp</result>
+	      <result name="success" type="redirectAction">userview2</result>
+	  </action> 
+          
+          <!-- SETTINGS -->
+         <action name="gradepage" class="com.readymix.action.SettingsAction" method="gradePage">
+	      <result name="success">/Grades.jsp</result>
+	 </action>
+         
+          <action name="dashboard22" class="com.readymix.action.SettingsAction" method="displayDash">
+             <result name="404err">/404error.jsp</result>
+             <result name="user">/UserDashboard.jsp</result>
+             <result name="control">/Dashboard.jsp</result>
+          </action>
+        
+         <action name="insertgrade" class="com.readymix.action.SettingsAction" method="gradeInsert">
+                  <result name="input">/Grades.jsp</result>
+                  <result name="success" type="redirectAction">gradepage</result>
+         </action>
+          
+          <action name="editgrade" class="com.readymix.action.SettingsAction" method="editGrade">
+	      <result name="success">/UpdateGrades.jsp</result>
+	 </action> 
+         
+          <action name="updategrade" class="com.readymix.action.SettingsAction" method="updateGrade">
+              <result name="input">/UpdateGrades.jsp</result>
+	      <result name="success" type="redirectAction">gradepage</result>
+	 </action> 
+         
+            <action name="deletegrade" class="com.readymix.action.SettingsAction" method="deleteGrade">
+                <result name="success" type="redirectAction">gradepage</result>
+            </action> 
+        
+        <!-- Change Password-->
+        <action name="pwdpage" class="com.readymix.action.SettingsAction" method="pwdPage">
+                <result name="success">/changepassword.jsp</result>
+        </action>
+        
+         <action name="changepwd" class="com.readymix.action.SettingsAction" method="changePwd">
+              <result name="input">/changepassword.jsp</result>
+	      <result name="success" type="redirectAction">dashboard22</result>
+	 </action> 
+         
+            
+         <!-- USER DASHBOARD -->
+         
+         <action name="common" class="com.readymix.action.CommonInvoiceAction" method="commonPage">
+                <result name="success">/commoninvoice.jsp</result>
+         </action>
+         
+         
+         <!--  REPORTS    -->
+         
+         
+         
+         <!--  DEBIT NOTE    -->
+          <action name="debitnote" class="com.readymix.action.DebitAction" method="debitPage">
+                <result name="success">/DebitNote.jsp</result>
+          </action>
+          
+          <!--    REPORTS         -->
+          
+              <action name="dailyreport" class="com.readymix.action.ReportAction" method="dailyReport">
+                <result name="success">/DebitNote.jsp</result>
+               </action>
+               
+               
+          <action name="getratepage" class="com.readymix.action.SettingsAction" method="getRatePage">
+            <result name="success">/gst.jsp</result>
+	 </action>  
+         
+          <action name="insertquantity" class="com.readymix.action.SettingsAction" method="insertQuant">
+                <result name="input">/gst.jsp</result>
+            <result name="success" type="redirectAction">getratepage</result>
+	 </action>
+         
+          <action name="deletequant" class="com.readymix.action.SettingsAction" method="delQuant">
+             <result name="success" type="redirectAction">getratepage</result>
+	 </action>
+               
+          
+          <!-- TAX INVOICE INSERTION-->
+        <action name="getGrades" class="com.readymix.action.TaxIAction" method="retrieveGrades">
+	<result name="success">/TaxInvoice.jsp</result>
+	</action>
+        
+         <action name="disdash" class="com.readymix.action.TaxIAction" method="disDahboard">
+	 <result name="404err">/404error.jsp</result>
+             <result name="user">/UserDashboard.jsp</result>
+             <result name="control">/Dashboard.jsp</result>
+	</action>
+        
+        <action name="insertTaxInvoice" class="com.readymix.action.TaxIAction" method="insertTaxInvoice">
+          <result name="input">/TaxInvoice.jsp</result>
+	<result name="success">/TaxInvoiceView.jsp</result>
+	</action>
+        
+         <action name="viewinvoice" class="com.readymix.action.TaxIAction" method="viewInvoice">
+            <result name="success">/TaxInvoice12.jsp</result>
+	</action>
+        
+        <action name="editinvoice" class="com.readymix.action.TaxIAction" method="editInvoice">
+            <result name="success">/UpdateInvoice.jsp</result>
+	</action>
+        
+        <action name="viewtax" class="com.readymix.action.TaxIAction" method="viewTaxList">
+            <result name="success">/ViewTaxInvoice.jsp</result>
+	</action>
+        
+        <action name="updateinvoice" class="com.readymix.action.TaxIAction" method="updateInvoice">
+            <result name="success">/TaxInvoiceView.jsp</result>
+	</action>
+        
+        <action name="deletevoice" class="com.readymix.action.TaxIAction" method="deleteVoice">
+            <result name="success" type="redirectAction">viewtax</result>
+	 </action>
+ 
+ 
+ 
+ 
+   
+          <!--  REPORTS    -->
+         
+         <action name="commonreport" class="com.readymix.action.ReportAction" method="dailyReport">
+                <result name="success">/Reports.jsp</result>
+         </action>
+         
+          <action name="monthlyreport" class="com.readymix.action.ReportAction" method="monthlyReport">
+                <result name="success">/MonthlyReport.jsp</result>
+         </action>
+         <action name="genreport" class="com.readymix.action.ReportAction" method="reportspage">
+	      <result name="success">/GeneralReports.jsp</result>
+	 </action>
+     
+     <action name="getGenReports" class="com.readymix.action.ReportAction" method="getGenreport">
+          <result name="refresh">/GeneralReports.jsp</result>
+	      <result name="success">/GeneralReports.jsp</result>
+	 </action>
+        
+   </package>
+</struts>
