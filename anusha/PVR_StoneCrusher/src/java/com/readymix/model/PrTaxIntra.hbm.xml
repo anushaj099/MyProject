@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 7, 2017 7:26:58 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.readymix.model.PrTaxIntra" table="pr_tax_intra" catalog="stonecrusher" optimistic-lock="version">
+        <id name="ptId" type="java.lang.Integer">
+            <column name="pt_id" />
+            <generator class="identity" />
+        </id>
+        <property name="invoiceNo" type="java.lang.Integer">
+            <column name="invoice_no" />
+        </property>
+        <property name="invoiceDate" type="date">
+            <column name="invoice_date" length="10" />
+        </property>
+        <property name="reverseCharge" type="string">
+            <column name="reverse_charge" length="50" />
+        </property>
+        <property name="state" type="string">
+            <column name="state" length="50" />
+        </property>
+        <property name="code" type="string">
+            <column name="code" length="20" />
+        </property>
+        <property name="transportMode" type="string">
+            <column name="transport_mode" length="50" />
+        </property>
+        <property name="vehNo" type="string">
+            <column name="veh_no" length="50" />
+        </property>
+        <property name="dateOfSupply" type="date">
+            <column name="date_of_supply" length="10" />
+        </property>
+        <property name="placeOfSupply" type="string">
+            <column name="place_of_supply" length="65535" />
+        </property>
+        <property name="billToName" type="string">
+            <column name="bill_to_name" length="50" />
+        </property>
+        <property name="billToAddress" type="string">
+            <column name="bill_to_address" length="65535" />
+        </property>
+        <property name="billToGstin" type="string">
+            <column name="bill_to_gstin" length="50" />
+        </property>
+        <property name="billTostate" type="string">
+            <column name="bill_tostate" length="50" />
+        </property>
+        <property name="billToCode" type="string">
+            <column name="bill_to_code" length="20" />
+        </property>
+        <property name="shipToName" type="string">
+            <column name="ship_to_name" length="50" />
+        </property>
+        <property name="shipAddress" type="string">
+            <column name="ship_address" length="65535" />
+        </property>
+        <property name="shipToGstin" type="string">
+            <column name="ship_to_gstin" length="50" />
+        </property>
+        <property name="shipToState" type="string">
+            <column name="ship_to_state" length="50" />
+        </property>
+        <property name="shipToCode" type="string">
+            <column name="ship_to_code" length="20" />
+        </property>
+        <property name="prTotal" type="java.lang.Float">
+            <column name="pr_total" precision="20" scale="8" />
+        </property>
+        <property name="totalInWords" type="string">
+            <column name="total_in_words" length="65535" />
+        </property>
+        <property name="bankAc" type="string">
+            <column name="bank_AC" length="50" />
+        </property>
+        <property name="bankIfsc" type="string">
+            <column name="bank_IFSC" length="50" />
+        </property>
+        <property name="termsCond" type="string">
+            <column name="terms_cond" length="65535" />
+        </property>
+        <property name="autharizedSign" type="string">
+            <column name="autharized_sign" length="50" />
+        </property>
+        <property name="totalQty" type="java.lang.Float">
+            <column name="total_qty" precision="20" scale="8" />
+        </property>
+        <property name="totalValBtax" type="java.lang.Float">
+            <column name="total_val_btax" precision="20" scale="8" />
+        </property>
+        <property name="totalValAtax" type="java.lang.Float">
+            <column name="total_val_atax" precision="20" scale="8" />
+        </property>
+        <property name="totalTaxval" type="java.lang.Float">
+            <column name="total_taxval" precision="20" scale="8" />
+        </property>
+        <property name="totalCgstAmt" type="java.lang.Float">
+            <column name="total_cgst_amt" precision="20" scale="8" />
+        </property>
+        <property name="totalSgstAmt" type="java.lang.Float">
+            <column name="total_sgst_amt" precision="20" scale="8" />
+        </property>
+        <property name="gstReverseCharge" type="java.lang.Float">
+            <column name="gst_reverse_charge" precision="10" />
+        </property>
+        <property name="totalInv" type="java.lang.Float">
+            <column name="total_inv" precision="20" scale="8" />
+        </property>
+        <property name="bankName" type="string">
+            <column name="bank_name" length="40" />
+        </property>
+        <property name="bankBranch" type="string">
+            <column name="bank_branch" length="40" />
+        </property>
+        <property name="invTot" type="java.lang.Integer">
+            <column name="inv_tot" />
+        </property>
+        <set name="chTaxIntras" table="ch_tax_intra" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ptc_id" />
+            </key>
+            <one-to-many class="com.readymix.model.ChTaxIntra" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 7, 2017 7:26:58 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.readymix.model.Grades" table="grades" catalog="stonecrusher" optimistic-lock="version">
+        <id name="gid" type="java.lang.Integer">
+            <column name="gid" />
+            <generator class="identity" />
+        </id>
+        <property name="grade" type="string">
+            <column name="grade" length="40" />
+        </property>
+         <property name="uom" type="string">
+            <column name="uom" length="40" />
+        </property>
+          <property name="basicRate" type="java.lang.Float">
+            <column name="basic_rate" precision="10" />
+        </property>
+    </class>
+</hibernate-mapping>

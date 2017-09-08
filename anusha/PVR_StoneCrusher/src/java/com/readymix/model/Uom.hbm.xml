@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 14, 2017 3:54:44 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.readymix.model.Uom" table="uom" catalog="stonecrusher" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="uom" type="string">
+            <column name="uom" length="40" />
+        </property>
+        <property name="quantity" type="java.lang.Float">
+            <column name="quantity" precision="20" scale="8" />
+        </property>
+        <property name="basicVal" type="java.lang.Float">
+            <column name="basic_val" precision="20" scale="8" />
+        </property>
+    </class>
+</hibernate-mapping>

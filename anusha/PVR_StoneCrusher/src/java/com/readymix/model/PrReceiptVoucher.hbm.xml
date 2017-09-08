@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 7, 2017 7:26:58 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.readymix.model.PrReceiptVoucher" table="pr_receipt_voucher" catalog="stonecrusher" optimistic-lock="version">
+        <id name="prcId" type="java.lang.Integer">
+            <column name="prc_id" />
+            <generator class="identity" />
+        </id>
+        <property name="vocherNo" type="string">
+            <column name="vocher_no" length="50" />
+        </property>
+        <property name="vocherDate" type="date">
+            <column name="vocher_date" length="10" />
+        </property>
+        <property name="placeeOfSupply" type="string">
+            <column name="placee_of_supply" length="65535" />
+        </property>
+        <property name="reverseCharge" type="string">
+            <column name="reverse_charge" length="50" />
+        </property>
+        <property name="state" type="string">
+            <column name="state" length="50" />
+        </property>
+        <property name="code" type="string">
+            <column name="code" length="20" />
+        </property>
+        <property name="receiverName" type="string">
+            <column name="receiver_name" length="50" />
+        </property>
+        <property name="receiverAddress" type="string">
+            <column name="receiver_address" length="65535" />
+        </property>
+        <property name="receiverGstin" type="string">
+            <column name="receiver_gstin" length="50" />
+        </property>
+        <property name="receiverState" type="string">
+            <column name="receiver_state" length="50" />
+        </property>
+        <property name="receiverCode" type="string">
+            <column name="receiver_code" length="20" />
+        </property>
+        <property name="prTotal" type="java.lang.Float">
+            <column name="pr_total" precision="20" scale="8" />
+        </property>
+        <property name="totalInWords" type="string">
+            <column name="total_in_words" length="65535" />
+        </property>
+        <property name="authorizedSignatory" type="string">
+            <column name="authorized_signatory" length="50" />
+        </property>
+        <set name="chReceiptVouchers" table="ch_receipt_voucher" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="crid" not-null="true" />
+            </key>
+            <one-to-many class="com.readymix.model.ChReceiptVoucher" />
+        </set>
+    </class>
+</hibernate-mapping>
